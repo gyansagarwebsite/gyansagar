@@ -1,0 +1,169 @@
+/* ============================================
+   PREMIUM ANIMATIONS & MICRO-INTERACTIONS
+   ============================================ */
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Animation Utility Classes */
+.fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+.fade-in    { animation: fadeIn 0.5s ease-out both; }
+.slide-in-left  { animation: slideInLeft 0.5s ease-out both; }
+.slide-in-right { animation: slideInRight 0.5s ease-out both; }
+.scale-in   { animation: scaleIn 0.4s ease-out both; }
+.float      { animation: float 3s ease-in-out infinite; }
+.bounce     { animation: bounce 2s ease-in-out infinite; }
+.pulse-anim { animation: pulse 2s ease-in-out infinite; }
+
+/* Delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+/* Premium Card Hover */
+.premium-card {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ripple Button Effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.btn-ripple:active::after {
+  animation: ripple 0.45s ease-out;
+}
+
+/* Gradient animated background */
+.gradient-animated {
+  background: linear-gradient(270deg, var(--primary-color), var(--primary-light), #4a6cf7, var(--primary-color));
+  background-size: 400% 400%;
+  animation: gradient-flow 6s ease infinite;
+}
+
+/* Scroll reveal helpers */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Touch feedback for mobile */
+@media (hover: none) {
+  .premium-card:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

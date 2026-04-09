@@ -1,0 +1,106 @@
+:root {
+  /* Colors from UI Image */
+--primary-color: #2D3F8F;
+  --primary-dark: #1A2557;
+  --primary-light: #4A5DB8;
+--secondary-color: #FF8A3D;
+  --secondary-light: #FFB380;
+  --success-color: #4CAF50;
+  --danger-color: #FF6B6B;
+  --warning-color: #FF8C42;
+  --info-color: #00A8E8;
+  
+  /* Neutral Colors */
+  --dark-color: #1A1A1A;
+  --gray-900: #2D2D2D;
+  --gray-700: #525252;
+  --gray-600: #6F6F6F;
+  --gray-500: #858585;
+  --gray-400: #BDBDBD;
+  --gray-300: #D9D9D9;
+  --gray-200: #EBEBEB;
+--gray-100: #F6F7FB;
+  --light-color: #FFFFFF;
+  
+  /* Category Colors */
+  --history-bg: #FF8C42;
+  --geography-bg: #4CAF50;
+  --science-bg: #00A8E8;
+  --affairs-bg: #4CAF50;
+  --constitution-bg: #4CAF50;
+  --world-gk-bg: #2C3E8F;
+  
+  /* Shadows - Refined for depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(14px);
+  --nav-glass: rgba(255, 255, 255, 0.85);
+  
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  --grad-accent: linear-gradient(135deg, var(--secondary-color) 0%, #FFB380 100%);
+  --grad-surface: linear-gradient(135deg, #FFFFFF 0%, #F6F7FB 100%);
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+--radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions & Motion - PREMIUM SMOOTHNESS */
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-md: 350ms cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-slow: 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  --easing-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --easing-magnetic: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Typography */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 40px;
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}

@@ -1,0 +1,130 @@
+/* HorizontalCategories.css */
+
+.hc-section {
+  padding: 2.5rem 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.hc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hc-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hc-title-icon {
+  font-size: 1.25rem;
+  color: #0b224d;
+  opacity: 0.7;
+}
+
+.hc-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.hc-see-all {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d3f8f;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.hc-see-all:hover {
+  opacity: 0.8;
+}
+
+/* Scroll Wrapper */
+.hc-scroll-wrapper {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.hc-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.hc-list {
+  display: flex;
+  gap: 2.5rem;
+  padding: 0.5rem 0;
+}
+
+.hc-item-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  min-width: 90px;
+}
+
+.hc-item-link:hover {
+  transform: translateY(-5px);
+}
+
+.hc-card {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.hc-item-link:hover .hc-card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: scale(1.05);
+}
+
+.hc-icon {
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hc-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Tablet / Mobile Adjustments */
+@media (max-width: 768px) {
+  .hc-list {
+    gap: 1.5rem;
+  }
+  .hc-card {
+    width: 80px;
+    height: 80px;
+  }
+  .hc-icon {
+    font-size: 1.8rem;
+  }
+  .hc-name {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,135 @@
+.question-details-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  animation: fadeInUp 0.5s ease-out;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.option-card {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.option-card.selected {
+  border-color: var(--color-primary);
+  background-color: #e9eafc;
+}
+
+.option-letter {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.option-text {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.option-status-icon {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.option-card.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  animation: pulse 0.6s ease;
+}
+
+.option-card.incorrect {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  animation: shake 0.5s ease;
+}
+
+.option-card.correct .option-letter,
+.option-card.incorrect .option-letter {
+  color: inherit;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  .question-details-card {
+    padding: 1.5rem;
+  }
+  .question-text {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,200 @@
+/* ============================================
+   CATEGORY PAGE - High-Density Minimalist UI
+   ============================================ */
+
+.category-page-wrap {
+  padding: 100px 0 60px;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.category-container {
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* ---- Nav & Breadcrumbs ---- */
+.category-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  padding: 6px 12px;
+  background: #fff;
+  border-radius: 20px;
+  width: fit-content;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.breadcrumb-sep { color: #cbd5e1; }
+.breadcrumb-current { color: var(--primary-color); font-weight: 600; font-size: 0.8rem; }
+
+/* ---- Header ---- */
+.category-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.cat-badge-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.cat-badge-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(45, 63, 143, 0.15);
+}
+
+.cat-count-badge {
+  background: #e0e7ff;
+  color: var(--primary-color);
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.category-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.category-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ---- Questions List ---- */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ---- COMPACT QUESTION CARD ---- */
+.premium-question-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.8rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.premium-question-card:hover { border-color: var(--primary-color); background: #fbfcfe; }
+
+.pq-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; /* Ultra tight vertical gap */
+}
+
+.pq-question-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  width: 100%;
+}
+
+.pq-qtext-wrap {
+  display: inline;
+}
+
+.pq-num-text {
+  font-weight: 800;
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-right: 6px;
+  display: inline;
+}
+
+.pq-text {
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 600;
+  line-height: 1.5;
+  display: inline;
+}
+
+/* Answer Row - SHIFTED TO LEFT (NO INDENT) */
+.pq-answer-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.pq-ans-label {
+  color: #166534;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.pq-ans-text {
+  font-size: 1rem;
+  color: #15803d;
+  font-weight: 700;
+  margin: 0;
+  display: inline;
+}
+
+/* Highlighted (Deep Link) */
+.premium-question-card.highlighted {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 15px rgba(45, 63, 143, 0.1);
+  background: #f5f7ff;
+}
+
+/* ---- Responsive Overrides ---- */
+@media (max-width: 1024px) {
+  .category-container { width: 94%; }
+}
+
+@media (max-width: 768px) {
+  .category-page-wrap { padding-top: 90px; }
+  .category-container { width: 98%; padding: 0 4px; }
+  
+  .premium-question-card {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .pq-text { font-size: 1rem; }
+  .pq-ans-text { font-size: 0.95rem; }
+
+  .pq-answer-row {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
