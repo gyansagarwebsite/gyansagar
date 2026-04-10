@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ChevronRight, 
-  Clock, 
-  Trophy, 
-  BookOpen, 
-  Users, 
-  Zap, 
-  Settings, 
-  ShieldCheck, 
-  Building2, 
-  Activity 
+import {
+  ChevronRight,
+  Clock,
+  Trophy,
+  BookOpen,
+  Users,
+  Zap,
+  Settings,
+  ShieldCheck,
+  Building2,
+  Activity
 } from 'lucide-react';
 import { GENERAL_CATEGORIES, EXAM_POSTS } from '../constants/categories';
 import '../styles/components/PracticeByCategory.css';
@@ -22,16 +22,16 @@ const IconMap = { Zap, Settings, Building2, Activity, ShieldCheck, Trophy };
 const PracticeByCategory = ({ initialTab = 'GENERAL', onCategorySelect, showTitle = true }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
   const navigate = useNavigate();
-  
+
   // States for randomized display on Homepage
   const [displayedCategories, setDisplayedCategories] = useState(GENERAL_CATEGORIES);
   const [displayedPosts, setDisplayedPosts] = useState(EXAM_POSTS);
 
   useEffect(() => {
     if (showTitle) {
-      // Shuffle and slice for Homepage
-      setDisplayedCategories([...GENERAL_CATEGORIES].sort(() => 0.5 - Math.random()).slice(0, 6));
-      setDisplayedPosts([...EXAM_POSTS].sort(() => 0.5 - Math.random()).slice(0, 6));
+      // Show fixed first 6 for Homepage
+      setDisplayedCategories(GENERAL_CATEGORIES.slice(0, 6));
+      setDisplayedPosts(EXAM_POSTS.slice(0, 6));
     } else {
       // Show all on Quiz Page
       setDisplayedCategories(GENERAL_CATEGORIES);
@@ -54,14 +54,14 @@ const PracticeByCategory = ({ initialTab = 'GENERAL', onCategorySelect, showTitl
     <div className="quiz-container fade-in">
       <div className="quiz-categories-grid">
         {displayedCategories.map((cat, idx) => (
-          <motion.div 
-            key={cat.name} 
+          <motion.div
+            key={cat.name}
             className="premium-category-card"
             onClick={() => handleSelect(cat)}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -15, scale: 1.02 }}
-            transition={{ 
+            transition={{
               duration: 0.3,
               delay: idx * 0.1,
               scale: { type: "spring", stiffness: 400, damping: 25 },
@@ -70,7 +70,7 @@ const PracticeByCategory = ({ initialTab = 'GENERAL', onCategorySelect, showTitl
           >
             <img src={cat.bg} alt={cat.name} className="pcc-bg-image" />
             <div className="pcc-overlay" />
-            
+
             <div className="pcc-content">
               <div className="pcc-top">
                 <div className="pcc-icon-container">
@@ -113,13 +113,13 @@ const PracticeByCategory = ({ initialTab = 'GENERAL', onCategorySelect, showTitl
     <div className="quiz-container fade-in">
       <div className="exam-posts-grid">
         {displayedPosts.map((post, idx) => (
-          <motion.div 
-            key={post.name} 
+          <motion.div
+            key={post.name}
             className="exam-post-card"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -18, scale: 1.03 }}
-            transition={{ 
+            transition={{
               duration: 0.3,
               delay: idx * 0.1,
               scale: { type: "spring", stiffness: 400, damping: 25 },
@@ -160,19 +160,19 @@ const PracticeByCategory = ({ initialTab = 'GENERAL', onCategorySelect, showTitl
             <Link to="/quiz" className="see-all-link">View All</Link>
           </div>
         )}
-        
+
         <div className="quiz-tabs" style={{ marginTop: showTitle ? '1rem' : '0' }}>
-          <button 
+          <button
             className={`quiz-tab ${activeTab === 'GENERAL' ? 'active' : ''}`}
             onClick={() => setActiveTab('GENERAL')}
           >
             General Categories
           </button>
-          <button 
+          <button
             className={`quiz-tab ${activeTab === 'EXAMS' ? 'active' : ''}`}
             onClick={() => setActiveTab('EXAMS')}
           >
-            Loksewa Exam Posts
+            Loksewa Posts
           </button>
         </div>
       </div>

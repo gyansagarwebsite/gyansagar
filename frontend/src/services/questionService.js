@@ -106,6 +106,16 @@ export const questionService = {
       throw error;
     }
   },
+
+  // Bulk create questions (admin)
+  bulkCreateQuestions: async (questionsArray) => {
+    try {
+      const response = await axiosInstance.post('/questions/bulk', questionsArray);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default questionService;

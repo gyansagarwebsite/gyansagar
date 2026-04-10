@@ -201,3 +201,44 @@ export const appendChunk2 = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Bulk create questions (admin)
+export const bulkCreateQuestions = async (req, res) => {
+  try {
+    const questions = req.body;
+    if (!Array.isArray(questions)) {
+      return res.status(400).json({ message: 'Payload must be an array of questions' });
+    }
+
+    // Sanitize and prepare questions
+    const preparedQuestions = questions.map(q => ({
+      ...q,
+      questionText: q.questionText?.trim(),
+      options: q.options ? q.options.map(opt => opt?.trim()) : []
+    }));
+
+    // ordered: false allows continuing insertion even if some fail (e.g. duplicate questionText)
+    const result = await Question.insertMany(preparedQuestions, { ordered: false });
+    
+    res.status(201).json({
+      success: true,
+      message: 'Bulk upload successful',
+      count: result.length
+    });
+  } catch (error) {
+    // Check if it's a partially successful insertion (e.g. duplicate key errors)
+    if (error.name === 'BulkWriteError' || error.code === 11000 || error.writeErrors) {
+      const insertedCount = error.result?.nInserted || 0;
+      const errorCount = (error.writeErrors?.length) || (questions.length - insertedCount);
+      
+      return res.status(207).json({
+        success: false,
+        message: `Partial success: ${insertedCount} questions added, ${errorCount} failed (likely duplicates).`,
+        insertedCount,
+        errorCount
+      });
+    }
+    
+    res.status(500).json({ message: error.message });
+  }
+};

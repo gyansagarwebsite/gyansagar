@@ -52,44 +52,47 @@ const QuestionDetails = () => {
     }
 
     return (
-        <div className="container">
-            <div className="question-details-card fade-in-up">
-                <div className="question-content">
-                    <h2 className="question-text">{question.questionText}</h2>
-                    <div className="options-grid">
-                        {question.options.map((option, index) => {
-                            const isSelected = selectedAnswer === index;
-                            const isCorrect = question.correctAnswer === index;
-                            const isIncorrect = isSelected && !isCorrect;
+        <div className="focused-question-container">
+            <div className="focused-question-card fade-in-up">
+                <div className="focused-question-header">
+                    <h1 className="focused-question-text">{question.questionText}</h1>
+                </div>
 
-                            let optionClass = 'option-card';
-                            if (showAnswer) {
-                                if (isCorrect) optionClass += ' correct';
-                                if (isIncorrect) optionClass += ' incorrect';
-                            } else if (isSelected) {
-                                optionClass += ' selected';
-                            }
+                <div className="focused-options-grid">
+                    {question.options.map((option, index) => {
+                        const isSelected = selectedAnswer === index;
+                        const isCorrect = question.correctAnswer === index;
+                        const isIncorrect = isSelected && !isCorrect;
 
-                            return (
-                                <div 
-                                    key={index} 
-                                    className={optionClass}
-                                    onClick={() => handleOptionClick(index)}
-                                >
-                                    <span className="option-letter">{String.fromCharCode(65 + index)}</span>
-                                    <p className="option-text">{option}</p>
-                                    
-                                    {showAnswer && isCorrect && (
-                                        <CheckCircle2 className="option-status-icon" size={20} />
-                                    )}
-                                    {showAnswer && isIncorrect && (
-                                        <XCircle className="option-status-icon" size={20} />
-                                    )}
+                        let optionStatus = '';
+                        if (showAnswer) {
+                            if (isCorrect) optionStatus = 'correct';
+                            else if (isIncorrect) optionStatus = 'incorrect';
+                        } else if (isSelected) {
+                            optionStatus = 'selected';
+                        }
+
+                        return (
+                            <div 
+                                key={index} 
+                                className={`focused-option-card ${optionStatus}`}
+                                onClick={() => handleOptionClick(index)}
+                            >
+                                <div className="focused-option-inner">
+                                    <div className="focused-letter-box">
+                                        {String.fromCharCode(65 + index)}
+                                    </div>
+                                    <div className="focused-option-content">
+                                        <p>{option}</p>
+                                    </div>
+                                    <div className="focused-status-indicator">
+                                        {showAnswer && isCorrect && <CheckCircle2 size={24} />}
+                                        {showAnswer && isIncorrect && <XCircle size={24} />}
+                                    </div>
                                 </div>
-                            );
-                        })}
-                    </div>
-
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

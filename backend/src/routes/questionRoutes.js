@@ -6,7 +6,8 @@ import {
   updateQuestion,
   deleteQuestion,
   getRecentQuestions,
-  appendChunk2
+  appendChunk2,
+  bulkCreateQuestions
 } from '../controllers/questionController.js';
 import {
   getTodayQuestion,
@@ -38,6 +39,7 @@ router.route('/:id')
   .put(protect, admin, updateQuestion)
   .delete(protect, admin, deleteQuestion);
 
+router.post('/bulk', protect, admin, bulkCreateQuestions);
 router.post('/append-chunk2-gs-internal', appendChunk2);
 
 export default router;

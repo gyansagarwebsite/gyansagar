@@ -37,6 +37,11 @@ const AdminDrawer = ({ isOpen, onClose }) => {
       path: '/admin/weekly-quiz',
       icon: BarChart3
     },
+    {
+      label: 'Manage MCQs',
+      path: '/admin/mcqs',
+      icon: HelpCircle
+    },
 
     {
       label: 'Contact Settings',

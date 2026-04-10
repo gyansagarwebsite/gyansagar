@@ -19,6 +19,7 @@ import WeeklyQuizManager from './admin/pages/WeeklyQuizManager';
 import DailyQuestionManager from './admin/pages/DailyQuestionManager';
 import AdminContactSettings from './admin/pages/AdminContactSettings';
 import AdminHeroSettings from './admin/pages/AdminHeroSettings';
+import ManageQuestions from './admin/pages/ManageQuestions';
 import './styles/design-system.css';
 import './styles/globals.css';
 import './styles/variables.css';
@@ -61,6 +62,7 @@ function App() {
           <Route path="messages" element={<AdminMessages />} />
           <Route path="daily-question" element={<DailyQuestionManager />} />
           <Route path="weekly-quiz" element={<WeeklyQuizManager />} />
+          <Route path="mcqs" element={<ManageQuestions />} />
           <Route path="contact-settings" element={<AdminContactSettings />} />
           <Route path="hero-settings" element={<AdminHeroSettings />} />
         </Route>

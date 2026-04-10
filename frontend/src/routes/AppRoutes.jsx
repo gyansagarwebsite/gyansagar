@@ -18,6 +18,7 @@ import AdminMessages from '../admin/pages/AdminMessages.jsx';
 import AdminHeroSettings from '../admin/pages/AdminHeroSettings.jsx';
 import WeeklyQuizManager from '../admin/pages/WeeklyQuizManager.jsx';
 import DailyQuestionManager from '../admin/pages/DailyQuestionManager.jsx';
+import ManageQuestions from '../admin/pages/ManageQuestions.jsx';
 import ProtectedRoute from '../components/ProtectedRoute.jsx';
 
 const AppRoutes = () => {
@@ -57,6 +58,7 @@ const AppRoutes = () => {
             <Route path="hero-settings" element={<AdminHeroSettings />} />
             <Route path="daily-question" element={<DailyQuestionManager />} />
             <Route path="weekly-quiz" element={<WeeklyQuizManager />} />
+            <Route path="mcqs" element={<ManageQuestions />} />
             <Route path="*" element={<div style={{ padding: '50px', background: '#f8d7da', color: '#721c24', borderRadius: '8px', margin: '20px' }}>ROUTE NOT FOUND IN ADMIN LAYOUT</div>} />
           </Route>
         </Routes>

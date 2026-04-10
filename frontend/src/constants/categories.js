@@ -3,12 +3,6 @@ export const GENERAL_CATEGORIES = [
   { name: 'Geography', icon: '🌍', color: '#2196f3', bg: '/quiz-bg/global.png' },
   { name: 'Constitution', icon: '⚖️', color: '#4caf50', bg: '/quiz-bg/gov.png' },
   { name: 'Science', icon: '🔬', color: '#9c27b0', bg: '/quiz-bg/science.png' },
-  { name: 'Computer Operator', icon: '💻', color: '#607d8b', bg: '/quiz-bg/science.png' },
-  { name: 'Banking Sector', icon: '🏦', color: '#e11d48', bg: '/quiz-bg/gov.png' },
-  { name: 'Nepal Army', icon: '🪖', color: '#ea580c', bg: '/quiz-bg/global.png' },
-  { name: 'Nepal Police', icon: '👮', color: '#4f46e5', bg: '/quiz-bg/global.png' },
-  { name: 'Nepal Electricity', icon: '⚡', color: '#3b82f6', bg: '/quiz-bg/gov.png' },
-  { name: 'नेपाल स्वास्थ्य', icon: '🏥', color: '#059669', bg: '/quiz-bg/gov.png' },
   { name: 'Current Affairs', icon: '📰', color: '#009688', bg: '/quiz-bg/gov.png' },
   { name: 'Loksewa', icon: '🏛️', color: '#795548', bg: '/quiz-bg/gov.png' },
 ];
