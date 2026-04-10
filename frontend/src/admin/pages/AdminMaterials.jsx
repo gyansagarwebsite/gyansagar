@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { Download, Trash2, Plus, Edit2 } from 'lucide-react';
+import { Trash2, Plus, Edit2 } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import DataTable from '../components/DataTable.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
@@ -84,12 +84,6 @@ const AdminMaterials = () => {
       label: 'Edit',
       variant: 'primary',
       onClick: (row) => navigate(`/admin/materials/edit/${row._id}`)
-    },
-    {
-      icon: <Download size={16} />,
-      label: 'Download',
-      variant: 'success',
-      onClick: (row) => row.pdfUrl && window.open(row.pdfUrl, '_blank')
     },
     {
       icon: <Trash2 size={16} />,
