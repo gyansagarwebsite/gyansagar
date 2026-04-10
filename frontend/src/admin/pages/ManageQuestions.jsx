@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { HelpCircle, Search, Copy, Trash2, ChevronLeft, ChevronRight, Check, Upload } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Search, Copy, Trash2, ChevronLeft, ChevronRight, Check, Upload } from 'lucide-react';
 import { toast } from 'react-toastify';
 import questionService from '../../services/questionService.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
@@ -15,7 +15,7 @@ const ManageQuestions = () => {
     const [copiedId, setCopiedId] = useState(null);
     const [isBulkModalOpen, setIsBulkModalOpen] = useState(false);
 
-    const fetchQuestions = async () => {
+    const fetchQuestions = useCallback(async () => {
         try {
             setLoading(true);
             const data = await questionService.getQuestions({
@@ -31,11 +31,11 @@ const ManageQuestions = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [page, searchQuery]);
 
     useEffect(() => {
         fetchQuestions();
-    }, [page]);
+    }, [fetchQuestions]);
 
     const handleSearch = (e) => {
         e.preventDefault();

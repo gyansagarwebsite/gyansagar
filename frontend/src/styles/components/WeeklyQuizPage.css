@@ -571,10 +571,29 @@
   margin-left: auto;
 }
 
+/* Premium Animations */
+@keyframes quiz-shake {
+  0%, 100% { transform: translateX(0); }
+  15%, 45%, 75% { transform: translateX(-4px); }
+  30%, 60%, 90% { transform: translateX(4px); }
+}
+
+@keyframes quiz-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
 /* Hover/Active states managed primarily by Framer Motion, CSS handles base colors */
 .option-button:hover:not(.correct):not(.incorrect):not(.selected) {
   background: #eff6ff;
   border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.option-button:active:not(.correct):not(.incorrect) {
+  transform: scale(0.97);
 }
 
 .option-button.selected {
@@ -591,6 +610,7 @@
   background: #f0fdf4;
   border-color: #22c55e;
   color: #166534;
+  animation: quiz-pop 0.4s ease-out;
 }
 
 .option-button.correct .option-letter {
@@ -602,6 +622,7 @@
   background: #fef2f2;
   border-color: #ef4444;
   color: #991b1b;
+  animation: quiz-shake 0.4s ease-in-out;
 }
 
 .option-button.incorrect .option-letter {
