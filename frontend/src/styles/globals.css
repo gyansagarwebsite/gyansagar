@@ -63,6 +63,41 @@ button:active {
   }
 }
 
+.protection-blurred {
+  filter: blur(25px);
+  pointer-events: none;
+  transition: filter 0.2s ease-in-out;
+}
+
+.protection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: inherit;
+}
+
+.protection-warning-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.protection-warning-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 body {
   font-family: var(--font-secondary);
   background-color: var(--gray-100);

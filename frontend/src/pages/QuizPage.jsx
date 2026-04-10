@@ -29,6 +29,7 @@ import { translateQuestions } from '../utils/translateUtils';
 import useQuizProtection from '../hooks/useQuizProtection';
 
 import { GENERAL_CATEGORIES, EXAM_POSTS } from '../constants/categories';
+import ProtectionOverlay from '../components/common/ProtectionOverlay';
 
 // Constants
 
@@ -42,7 +43,7 @@ const VIEWS = {
 
 const QuizPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  useQuizProtection();
+  const { isProtected } = useQuizProtection();
   
   const [view, setView] = useState(searchParams.get('view') || VIEWS.CATEGORIES);
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'GENERAL'); // 'GENERAL' or 'EXAMS'
@@ -671,11 +672,19 @@ const QuizPage = () => {
       )}
 
       <AnimatePresence mode="wait">
-        {!loading && !translating && !error && view === VIEWS.CATEGORIES && renderSelectionPhase()}
-        {!loading && !translating && !error && view === VIEWS.SETS && renderSets()}
-        {!loading && !translating && !error && view === VIEWS.QUIZ && renderQuiz()}
-        {!loading && !translating && !error && view === VIEWS.RESULTS && renderResults()}
-        {!loading && !translating && !error && view === VIEWS.WEEKLY && renderWeekly()}
+        <div 
+          key={view} 
+          className={`quiz-protection ${isProtected ? 'protection-blurred' : ''}`}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{ position: 'relative' }}
+        >
+          {isProtected && <ProtectionOverlay />}
+          {!loading && !translating && !error && view === VIEWS.CATEGORIES && renderSelectionPhase()}
+          {!loading && !translating && !error && view === VIEWS.SETS && renderSets()}
+          {!loading && !translating && !error && view === VIEWS.QUIZ && renderQuiz()}
+          {!loading && !translating && !error && view === VIEWS.RESULTS && renderResults()}
+          {!loading && !translating && !error && view === VIEWS.WEEKLY && renderWeekly()}
+        </div>
       </AnimatePresence>
     </div>
   );

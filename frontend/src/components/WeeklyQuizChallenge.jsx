@@ -18,6 +18,7 @@ import publicQuizService from '../services/publicQuizService.js';
 import { shuffleQuestions } from '../utils/quizUtils.js';
 import confetti from 'canvas-confetti';
 import useQuizProtection from '../hooks/useQuizProtection';
+import ProtectionOverlay from './common/ProtectionOverlay';
 import '../styles/pages/BlogsPage.css';
 import '../styles/components/WeeklyQuizPage.css';
 
@@ -74,7 +75,7 @@ const WeeklyQuizChallenge = ({ onBack }) => {
   const [started, setStarted] = useState(false);
   const [winner, setWinner] = useState(null);
 
-  useQuizProtection();
+  const { isProtected } = useQuizProtection();
 
   const optionVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -294,7 +295,12 @@ const WeeklyQuizChallenge = ({ onBack }) => {
   const timerSeconds = (timeLeft % 60).toString().padStart(2, '0');
 
   return (
-    <div className="weekly-quiz-container fade-in quiz-protection" onContextMenu={(e) => e.preventDefault()}>
+    <div 
+      className={`weekly-quiz-container fade-in quiz-protection ${isProtected ? 'protection-blurred' : ''}`} 
+      onContextMenu={(e) => e.preventDefault()}
+      style={{ position: 'relative' }}
+    >
+      {isProtected && <ProtectionOverlay />}
         <button onClick={onBack} className="back-btn" style={{ marginBottom: '1.5rem' }}>
             <ChevronLeft size={18} /> Back to Quiz Collection
         </button>

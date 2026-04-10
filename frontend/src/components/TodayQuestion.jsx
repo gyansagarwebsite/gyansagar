@@ -6,12 +6,15 @@ import questionService from '../services/questionService.js';
 import LoadingSpinner from '../admin/components/LoadingSpinner.jsx';
 import { shuffleQuestion } from '../utils/quizUtils.js';
 import confetti from 'canvas-confetti';
+import useQuizProtection from '../hooks/useQuizProtection';
+import ProtectionOverlay from './common/ProtectionOverlay';
 import '../styles/components/TodayQuestion.css';
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
 const TodayQuestion = () => {
   const [searchParams] = useSearchParams();
+  const { isProtected } = useQuizProtection();
   const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -180,9 +183,11 @@ const TodayQuestion = () => {
   return (
     <section 
       ref={sectionRef}
-      className="today-question-section quiz-protection" 
+      className={`today-question-section quiz-protection ${isProtected ? 'protection-blurred' : ''}`} 
       onContextMenu={(e) => e.preventDefault()}
+      style={{ position: 'relative' }}
     >
+      {isProtected && <ProtectionOverlay />}
       <div className="tq-container">
         {/* Section Header */}
         <div className="tq-header">

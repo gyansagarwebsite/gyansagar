@@ -4,10 +4,11 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 import questionService from '../services/questionService';
 import LoadingSpinner from '../admin/components/LoadingSpinner';
 import useQuizProtection from '../hooks/useQuizProtection';
+import ProtectionOverlay from '../components/common/ProtectionOverlay';
 import '../styles/components/QuestionDetails.css';
 
 const QuestionDetails = () => {
-    useQuizProtection();
+    const { isProtected } = useQuizProtection();
     const [question, setQuestion] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -54,7 +55,12 @@ const QuestionDetails = () => {
     }
 
     return (
-        <div className="focused-question-container">
+        <div 
+          className={`focused-question-container quiz-protection ${isProtected ? 'protection-blurred' : ''}`}
+          style={{ position: 'relative' }}
+          onContextMenu={(e) => e.preventDefault()}
+        >
+            {isProtected && <ProtectionOverlay />}
             <div className="focused-question-card fade-in-up">
                 <div className="focused-question-header">
                     <h1 className="focused-question-text">{question.questionText}</h1>
