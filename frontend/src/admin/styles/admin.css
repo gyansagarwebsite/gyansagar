@@ -662,7 +662,26 @@
 
   .page-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: var(--spacing-lg);
+  }
+
+  .header-controls {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+
+  .search-input {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .header-controls .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .search-filter {

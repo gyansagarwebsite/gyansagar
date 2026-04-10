@@ -66,6 +66,7 @@ export default function DataTable({
                 <td
                   key={`${rowIndex}-${col.field}`}
                   className="table-data-cell"
+                  data-label={col.label}
                   style={col.width ? { width: col.width } : {}}
                 >
                   {col.render ? col.render(row[col.field], row, rowIndex) : row[col.field]}
