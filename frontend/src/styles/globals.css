@@ -53,6 +53,16 @@ button:active {
   -webkit-touch-callout: none; /* iOS Safari */
 }
 
+/* Aggressive deterrence: Hide content during print attempts (Save as PDF) */
+@media print {
+  .quiz-protection, 
+  .focused-question-container,
+  .weekly-quiz-container,
+  .quiz-active-interface {
+    display: none !important;
+  }
+}
+
 body {
   font-family: var(--font-secondary);
   background-color: var(--gray-100);

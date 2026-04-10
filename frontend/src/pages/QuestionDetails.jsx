@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import questionService from '../services/questionService';
 import LoadingSpinner from '../admin/components/LoadingSpinner';
+import useQuizProtection from '../hooks/useQuizProtection';
 import '../styles/components/QuestionDetails.css';
 
 const QuestionDetails = () => {
+    useQuizProtection();
     const [question, setQuestion] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

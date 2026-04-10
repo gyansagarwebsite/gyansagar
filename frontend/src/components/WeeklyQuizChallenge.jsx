@@ -17,6 +17,7 @@ import {
 import publicQuizService from '../services/publicQuizService.js';
 import { shuffleQuestions } from '../utils/quizUtils.js';
 import confetti from 'canvas-confetti';
+import useQuizProtection from '../hooks/useQuizProtection';
 import '../styles/pages/BlogsPage.css';
 import '../styles/components/WeeklyQuizPage.css';
 
@@ -72,6 +73,8 @@ const WeeklyQuizChallenge = ({ onBack }) => {
   const [quizId, setQuizId] = useState(null);
   const [started, setStarted] = useState(false);
   const [winner, setWinner] = useState(null);
+
+  useQuizProtection();
 
   const optionVariants = {
     hidden: { opacity: 0, x: -20 },

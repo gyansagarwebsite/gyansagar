@@ -26,6 +26,7 @@ import PracticeByCategory from '../components/PracticeByCategory';
 import '../styles/pages/QuizPage.css';
 import { shuffleQuestions } from '../utils/quizUtils';
 import { translateQuestions } from '../utils/translateUtils';
+import useQuizProtection from '../hooks/useQuizProtection';
 
 import { GENERAL_CATEGORIES, EXAM_POSTS } from '../constants/categories';
 
@@ -41,6 +42,7 @@ const VIEWS = {
 
 const QuizPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  useQuizProtection();
   
   const [view, setView] = useState(searchParams.get('view') || VIEWS.CATEGORIES);
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'GENERAL'); // 'GENERAL' or 'EXAMS'
