@@ -1162,14 +1162,71 @@ form {
 
 /* Final Mobile Overflow Fix */
 * {
-  max-width: 100vw !important;
   box-sizing: border-box !important;
   overflow-wrap: break-word !important;
-  word-break: break-word !important;
 }
 
 .admin-page, .admin-content, .admin-app {
-  overflow-x: hidden !important;
+  overflow-x: auto !important; /* Allow horizontal scroll for containers when needed */
   width: 100% !important;
-  max-width: 100vw !important;
+  position: relative;
+}
+
+/* Allow data tables to maintain width and scroll */
+.data-table, .data-table tr, .data-table th, .data-table td {
+  max-width: none !important;
+  word-break: normal !important;
+}
+
+
+/* ========================================
+   TARGETED PREMIUM BUTTON STYLES
+   (Save Daily Question, Upload Material, Publish Blog)
+   ======================================== */
+.admin-premium-action {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: white !important;
+  padding: 14px 28px !important;
+  border-radius: var(--radius-lg) !important;
+  border: none !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--spacing-sm) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 48px !important;
+  width: 100% !important; /* Full width for form priority on mobile */
+  margin-top: var(--spacing-lg) !important;
+}
+
+.admin-premium-action:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4) !important;
+  filter: brightness(1.05) !important;
+}
+
+.admin-premium-action::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent) !important;
+  transition: left 0.6s ease !important;
+}
+
+.admin-premium-action:hover::after {
+  left: 100% !important;
+}
+
+/* Specific layout override for Blog button to be right-aligned if container allows */
+.blog-form .admin-premium-action {
+    width: auto !important;
+    min-width: 250px !important;
 }

@@ -179,7 +179,7 @@ const MaterialForm = ({ materialId = null }) => {
         ) : null}
       </div>
 
-      <button type="submit" className="submit-btn" disabled={loading}>
+      <button type="submit" className="submit-btn admin-premium-action" disabled={loading}>
         {loading ? <LoadingSpinner size="small" /> : isEditMode ? 'Update Material' : 'Upload Material'}
       </button>
     </form>

@@ -65,12 +65,7 @@ const AdminBlogs = () => {
       field: 'title',
       label: 'Title'
     },
-    {
-      field: 'slug',
-      label: 'Slug',
-      width: '150px',
-      render: (value) => '/' + value
-    },
+
     {
       field: 'createdAt',
       label: 'Created',

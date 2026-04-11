@@ -220,7 +220,7 @@ const BlogForm = ({ slug = null }) => {
       </div>
 
       <div className="form-actions">
-        <button type="submit" className="submit-btn" disabled={loading}>
+        <button type="submit" className="submit-btn admin-premium-action" disabled={loading}>
           {loading ? <LoadingSpinner size="small" /> : slug ? 'Update Blog Post' : 'Publish Professional Blog'}
         </button>
       </div>

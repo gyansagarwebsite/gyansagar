@@ -183,7 +183,7 @@ const DailyQuestionManager = () => {
               />
             </div>
 
-            <button type="submit" className="submit-btn" disabled={submitting}>
+            <button type="submit" className="submit-btn admin-premium-action" disabled={submitting}>
               {submitting ? 'Saving...' : 'Save Daily Question'}
             </button>
           </form>
