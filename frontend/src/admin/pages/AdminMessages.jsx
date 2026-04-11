@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { toast } from 'react-toastify';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import EmptyState from '../components/EmptyState.jsx';
@@ -10,11 +10,7 @@ const AdminMessages = () => {
   const [search, setSearch] = useState('');
   const [expanded, setExpanded] = useState({});
 
-  useEffect(() => {
-    fetchMessages();
-  }, [search]);
-
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     try {
       setLoading(true);
       const response = await adminMessageService.getMessages(search ? { q: search } : {});
@@ -24,7 +20,11 @@ const AdminMessages = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search]);
+
+  useEffect(() => {
+    fetchMessages();
+  }, [fetchMessages]);
 
   const toggleExpanded = (id) => {
     setExpanded(prev => ({...prev, [id]: !prev[id]}));

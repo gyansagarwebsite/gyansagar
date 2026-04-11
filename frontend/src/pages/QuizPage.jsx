@@ -79,14 +79,14 @@ const QuizPage = () => {
     checkWeekly();
   }, []);
 
-  const updateQueryParams = (updates) => {
+  const updateQueryParams = useCallback((updates) => {
     const newParams = new URLSearchParams(searchParams);
     Object.entries(updates).forEach(([key, value]) => {
       if (value === null) newParams.delete(key);
       else newParams.set(key, value);
     });
     setSearchParams(newParams);
-  };
+  }, [searchParams, setSearchParams]);
 
   const handleCategorySelect = (category) => {
     setTempCategory(category);
@@ -199,7 +199,7 @@ const QuizPage = () => {
     return () => {
       if (timer) clearInterval(timer);
     };
-  }, [view, questions.length, loading, translating, error]);
+  }, [view, questions.length, loading, translating, error, updateQueryParams]);
 
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);

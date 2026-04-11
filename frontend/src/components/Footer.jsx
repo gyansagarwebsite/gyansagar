@@ -61,13 +61,13 @@ const Footer = () => {
               and weekly quizzes to help you excel in competitive exams.
             </p>
             <div className="footer-social">
-              <a href="#" className="social-link" title="Facebook">
+              <a href="#!" className="social-link" title="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="social-link" title="Twitter">
+              <a href="#!" className="social-link" title="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="social-link" title="LinkedIn">
+              <a href="#!" className="social-link" title="LinkedIn">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -97,19 +97,19 @@ const Footer = () => {
             <h4>Categories</h4>
             <ul className="footer-links">
               <li>
-                <a href="#">History</a>
+                <a href="#!">History</a>
               </li>
               <li>
-                <a href="#">Geography</a>
+                <a href="#!">Geography</a>
               </li>
               <li>
-                <a href="#">Science</a>
+                <a href="#!">Science</a>
               </li>
               <li>
-                <a href="#">Constitution</a>
+                <a href="#!">Constitution</a>
               </li>
               <li>
-                <a href="#">World GK</a>
+                <a href="#!">World GK</a>
               </li>
             </ul>
           </div>
@@ -138,11 +138,11 @@ const Footer = () => {
             <p>&copy; {currentYear} Gyan Sagar. All rights reserved.</p>
           </div>
           <div className="footer-links-bottom">
-            <a href="#">Privacy Policy</a>
+            <a href="#!">Privacy Policy</a>
             <span className="divider">•</span>
-            <a href="#">Terms & Conditions</a>
+            <a href="#!">Terms & Conditions</a>
             <span className="divider">•</span>
-            <a href="#">FAQ</a>
+            <a href="#!">FAQ</a>
           </div>
         </div>
       </div>

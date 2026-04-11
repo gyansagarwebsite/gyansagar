@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
 import authService from '../services/authService.js';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';

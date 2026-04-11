@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import DashboardCard from '../components/DashboardCard.jsx';
 import LoadingSpinner from '../components/LoadingSpinner.jsx';
 import { FileText, BookOpen, MessageSquare, Trophy, Plus, Activity } from 'lucide-react';
-import adminQuizService from '../services/adminQuizService.js';
-import adminQuestionService from '../services/adminQuestionService.js';
-import adminBlogService from '../services/adminBlogService.js';
-import adminMaterialService from '../services/adminMaterialService.js';
 import adminDashboardService from '../services/adminDashboardService.js';
 
 const AdminDashboard = () => {
