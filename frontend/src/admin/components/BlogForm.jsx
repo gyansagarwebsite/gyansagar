@@ -209,12 +209,12 @@ const BlogForm = ({ slug = null }) => {
       </div>
 
       <div className="form-group">
-        <label>Full Content (HTML Supported) *</label>
+        <label>Full Content *</label>
         <textarea
           value={formData.content}
           onChange={(e) => setFormData({...formData, content: e.target.value})}
           rows="12"
-          placeholder="Write your professional blog content here. You can use <h2>, <h3> and <p> tags for formatting."
+          placeholder="Write your full blog content here. Use separate paragraphs to keep it organized and easy to read."
           required
         />
       </div>

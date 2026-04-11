@@ -49,10 +49,26 @@ const BlogDetails = () => {
           </div>
         </div>
 
-        <div 
-          className="blog-content"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
+        {/* Render content: supports both plain text and legacy HTML */}
+        {/<[a-z][\s\S]*>/i.test(blog.content) ? (
+          <div 
+            className="blog-content"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
+        ) : (
+          <div className="blog-content">
+            {blog.content.split(/\n\s*\n/).map((paragraph, i) => (
+              <p key={i}>
+                {paragraph.split('\n').map((line, j, arr) => (
+                  <span key={j}>
+                    {line}
+                    {j < arr.length - 1 && <br />}
+                  </span>
+                ))}
+              </p>
+            ))}
+          </div>
+        )}
       </article>
     </div>
   );

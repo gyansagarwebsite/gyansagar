@@ -43,7 +43,7 @@ const VIEWS = {
 
 const QuizPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { isProtected } = useQuizProtection();
+  const { isProtected, protectedRef } = useQuizProtection();
   
   const [view, setView] = useState(searchParams.get('view') || VIEWS.CATEGORIES);
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'GENERAL'); // 'GENERAL' or 'EXAMS'
@@ -491,7 +491,7 @@ const QuizPage = () => {
 
     return (
       <div className="quiz-container fade-in">
-        <div className="quiz-active-interface quiz-protection" onContextMenu={(e) => e.preventDefault()}>
+        <div className="quiz-active-interface quiz-protection">
           <div className="quiz-top-stats">
             <div className="quiz-stat-card">
               <div className="qsc-icon-wrapper"><HelpCircle size={20}/></div>
@@ -674,8 +674,8 @@ const QuizPage = () => {
       <AnimatePresence mode="wait">
         <div 
           key={view} 
+          ref={protectedRef}
           className={`quiz-protection ${isProtected ? 'protection-blurred' : ''}`}
-          onContextMenu={(e) => e.preventDefault()}
           style={{ position: 'relative' }}
         >
           {isProtected && <ProtectionOverlay />}

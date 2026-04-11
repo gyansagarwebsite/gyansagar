@@ -75,7 +75,7 @@ const WeeklyQuizChallenge = ({ onBack }) => {
   const [started, setStarted] = useState(false);
   const [winner, setWinner] = useState(null);
 
-  const { isProtected } = useQuizProtection();
+  const { isProtected, protectedRef } = useQuizProtection();
 
   const optionVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -296,8 +296,8 @@ const WeeklyQuizChallenge = ({ onBack }) => {
 
   return (
     <div 
+      ref={protectedRef}
       className={`weekly-quiz-container fade-in quiz-protection ${isProtected ? 'protection-blurred' : ''}`} 
-      onContextMenu={(e) => e.preventDefault()}
       style={{ position: 'relative' }}
     >
       {isProtected && <ProtectionOverlay />}

@@ -973,10 +973,14 @@ form {
   border-radius: var(--radius-lg);
   font-size: var(--font-size-base);
   background: var(--color-background);
-  color: var(--color-text-primary);
+  color: #111827; /* Force explicit dark color */
   transition: all var(--transition-base);
   font-family: inherit;
   letter-spacing: 0.1em;
+}
+
+.password-input input[type="text"] {
+  letter-spacing: normal;
 }
 
 .password-input input::placeholder {

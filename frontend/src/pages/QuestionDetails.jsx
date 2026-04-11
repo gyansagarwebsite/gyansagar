@@ -8,7 +8,7 @@ import ProtectionOverlay from '../components/common/ProtectionOverlay';
 import '../styles/components/QuestionDetails.css';
 
 const QuestionDetails = () => {
-    const { isProtected } = useQuizProtection();
+    const { isProtected, protectedRef } = useQuizProtection();
     const [question, setQuestion] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -56,9 +56,9 @@ const QuestionDetails = () => {
 
     return (
         <div 
+          ref={protectedRef}
           className={`focused-question-container quiz-protection ${isProtected ? 'protection-blurred' : ''}`}
           style={{ position: 'relative' }}
-          onContextMenu={(e) => e.preventDefault()}
         >
             {isProtected && <ProtectionOverlay />}
             <div className="focused-question-card fade-in-up">

@@ -14,7 +14,7 @@ const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
 const TodayQuestion = () => {
   const [searchParams] = useSearchParams();
-  const { isProtected } = useQuizProtection();
+  const { isProtected, protectedRef } = useQuizProtection();
   const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -182,9 +182,8 @@ const TodayQuestion = () => {
 
   return (
     <section 
-      ref={sectionRef}
+      ref={(el) => { sectionRef.current = el; protectedRef.current = el; }}
       className={`today-question-section quiz-protection ${isProtected ? 'protection-blurred' : ''}`} 
-      onContextMenu={(e) => e.preventDefault()}
       style={{ position: 'relative' }}
     >
       {isProtected && <ProtectionOverlay />}
