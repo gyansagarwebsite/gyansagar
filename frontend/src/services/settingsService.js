@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = '/api/contact-settings';
-
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+const API_URL = `${BASE_URL}/contact-settings`;
 const getContactSettings = async () => {
   const response = await axios.get(API_URL);
   return response.data;

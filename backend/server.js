@@ -25,7 +25,12 @@ import './src/utils/dnsSetup.js';
 
 const app = express();
 
-app.use(cors());
+// CORS – allow Vercel frontend in production, everything in dev
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Auth routes
@@ -41,6 +46,11 @@ app.use('/api/hero', heroRoutes);
 app.use('/api/contact-settings', contactSettingsRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/admin', adminRoutes);
+
+// Health check route for Render
+app.get('/', (req, res) => {
+  res.send('Gyan Sagar API is running...');
+});
 
 
 const __filename = fileURLToPath(import.meta.url);
