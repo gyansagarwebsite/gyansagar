@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Analytics } from '@vercel/analytics/react';
 import AppRoutes from './routes/AppRoutes';
 import Navbar from './components/Navbar';
 import ScrollToTop from './components/ScrollToTop';
@@ -67,6 +68,7 @@ function App() {
           <Route path="hero-settings" element={<AdminHeroSettings />} />
         </Route>
       </Routes>
+      <Analytics />
     </Router>
   );
 }
