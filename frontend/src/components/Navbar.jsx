@@ -312,22 +312,25 @@ const Navbar = () => {
             <button onClick={() => {setSearchOpen(false); setSearchResults([]);}} className="search-close">
               <X size={18} />
             </button>
+            
             {/* Mobile Search Results */}
-{searchResults.length > 0 && (
-  <div className="search-results-dropdown">
-    {searchResults.map((q) => (
-      <Link
-        key={q._id}
-        to={`/question/${q.slug || q._id}`}
-        className="search-result-item"
-        onClick={handleResultClick}
-      >
-        <HelpCircle size={14} className="result-icon" />
-        <span className="result-text">{q.questionText}</span>
-      </Link>
-    ))}
-  </div>
-)}
+            {searchResults.length > 0 && (
+              <div className="search-results-dropdown">
+                {searchResults.map((q) => (
+                  <Link
+                    key={q._id}
+                    to={`/question/${q.slug || q._id}`}
+                    className="search-result-item"
+                    onClick={handleResultClick}
+                  >
+                    <HelpCircle size={14} className="result-icon" />
+                    <span className="result-text">{q.questionText}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* Mobile Slide-down Menu */}
         <div className={`mobile-slide-menu ${mobileMenuOpen ? 'open' : ''}`}>
