@@ -475,6 +475,7 @@
 .mobile-search-bar.open {
   max-height: 70px;
   padding: 0 16px 10px;
+  overflow: visible;
 }
 
 .mobile-search-inner {
@@ -486,6 +487,7 @@
   gap: 8px;
   border: 1.5px solid var(--primary-color);
   box-shadow: 0 0 0 3px rgba(45, 63, 143, 0.1);
+  position: relative;
 }
 
 .search-close {
