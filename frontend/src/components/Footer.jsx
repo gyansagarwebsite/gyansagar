@@ -61,16 +61,34 @@ const Footer = () => {
               and weekly quizzes to help you excel in competitive exams.
             </p>
             <div className="footer-social">
-              <a href="#!" className="social-link" title="Facebook">
-                <Facebook size={20} />
-              </a>
-              <a href="#!" className="social-link" title="Twitter">
-                <Twitter size={20} />
-              </a>
-              <a href="#!" className="social-link" title="LinkedIn">
-                <Linkedin size={20} />
-              </a>
-            </div>
+  <a 
+    href="https://www.facebook.com/sk.sk.959933" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-link" 
+    title="Facebook"
+  >
+    <Facebook size={20} />
+  </a>
+  <a 
+    href="https://twitter.com/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-link" 
+    title="Twitter"
+  >
+    <Twitter size={20} />
+  </a>
+  <a 
+    href="https://linkedin.com/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="social-link" 
+    title="LinkedIn"
+  >
+    <Linkedin size={20} />
+  </a>
+</div>
           </div>
 
           {/* Quick Links */}
