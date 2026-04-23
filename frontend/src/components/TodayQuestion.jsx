@@ -30,7 +30,7 @@ const TodayQuestion = () => {
         const data = await questionService.getDailyQuestion(dqId);
         if (data) {
           // Shuffle options for the daily question
-          const q = shuffleQuestion(data);
+          const q = data;
           q.date = new Date(q.createdAt).toLocaleDateString('en-US', {
             month: 'short', day: 'numeric', year: 'numeric'
           }).toUpperCase();
